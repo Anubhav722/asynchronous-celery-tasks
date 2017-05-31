@@ -1,6 +1,6 @@
 from celery.task.schedules import crontab
 from celery.decorators import periodic_task
-from celery.utils.logs import get_task_logger
+from celery.utils.log import get_task_logger
 
 from photos.utils import save_latest_flickr_image
 
