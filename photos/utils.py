@@ -23,3 +23,18 @@ def get_latest_flickr_image():
 	images = feed['items']
 	return images[0]
 
+def save_latest_flickr_image():
+	"""
+	We get the lastest image and save it to flickr model
+	"""
+	flickr_image = get_latest_flickr_image()
+	# make sure we don't save the image more than once
+	# assuming each flickr image has a unique link
+	if not Photo.objects.filter(link=flickr_image['link']).exists():
+		photo = Photo(
+				title = flickr_image['title'],
+				link = flickr_image['link'],
+				image_url = flickr_image['media']['m'],
+				description = flickr_image['description'],
+			)
+		photo.save()
