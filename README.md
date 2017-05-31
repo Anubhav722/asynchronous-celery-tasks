@@ -10,3 +10,5 @@ The server should reply with PONG!
 ### Test that celery task scheduler is ready for action: $ celery -A picha beat -l info
 
 After every 15 mins an image is fetched from Flickr
+
+### Follow up link: https://realpython.com/blog/python/asynchronous-tasks-with-django-and-celery/#comment-2124708430
